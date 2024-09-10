@@ -1,5 +1,6 @@
 package com.example.baseskeletonstarter.view.adapter
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.baseskeletonstarter.databinding.ItemListBinding
@@ -10,17 +11,21 @@ class AdapterItemList(
     private val itemList: List<Item>,
     private val viewModel: MainViewModel
 ): RecyclerView.Adapter<AdapterItemList.ViewItemHolder>() {
-    inner class ViewItemHolder(private val binding: ItemListBinding) : RecyclerView.ViewHolder(binding.root)
+
+    inner class ViewItemHolder(val binding: ItemListBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewItemHolder {
-        TODO("Not yet implemented")
+        val vb = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewItemHolder(vb)
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return itemList.size
     }
 
     override fun onBindViewHolder(holder: ViewItemHolder, position: Int) {
-        TODO("Not yet implemented")
+        val itemList = itemList[position]
+
+        holder.binding.tvItemName.text = itemList.name
     }
 }
