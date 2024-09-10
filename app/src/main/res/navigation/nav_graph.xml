@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_list_item">
+
+    <fragment
+        android:id="@+id/nav_favoriten"
+        android:name="com.example.baseskeletonstarter.view.FavoritenFragment"
+        android:label="fragment_favoriten"
+        tools:layout="@layout/fragment_favoriten" />
+    <fragment
+        android:id="@+id/nav_list_item"
+        android:name="com.example.baseskeletonstarter.view.ListItemFragment"
+        android:label="fragment_list_item"
+        tools:layout="@layout/fragment_list_item" />
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.baseskeletonstarter.view.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>
