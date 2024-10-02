@@ -2,7 +2,9 @@ package com.example.baseskeletonstarter.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.baseskeletonstarter.R
 import com.example.baseskeletonstarter.databinding.ItemListBinding
 import com.example.baseskeletonstarter.model.data.Item
 import com.example.baseskeletonstarter.viewModel.MainViewModel
@@ -24,8 +26,13 @@ class AdapterItemList(
     }
 
     override fun onBindViewHolder(holder: ViewItemHolder, position: Int) {
-        val itemList = itemList[position]
+        val item = itemList[position]
 
-        holder.binding.tvItemName.text = itemList.name
+        holder.binding.tvItemName.text = item.name
+
+        holder.binding.root.setOnClickListener {
+            viewModel.setSelectectdItem(item)
+            holder.itemView.findNavController().navigate(R.id.itemDetailFragment)
+        }
     }
 }

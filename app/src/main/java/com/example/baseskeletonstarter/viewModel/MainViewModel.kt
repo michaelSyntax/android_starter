@@ -16,9 +16,17 @@ class MainViewModel: ViewModel() {
     val items: LiveData<List<Item>>
         get() = _items
 
+    private val _selectedItem = MutableLiveData<Item>()
+    val selectedItem: LiveData<Item>
+        get() = _selectedItem
+
     fun getItems() {
         viewModelScope.launch {
             _items.value = repository.getItems()
         }
+    }
+
+    fun setSelectectdItem(item: Item) {
+        _selectedItem.value = item
     }
 }
